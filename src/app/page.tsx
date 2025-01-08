@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import HorizontalStorySlider from "@/components/HorizentalStorySlider";
 
 export default function Home() {
   return (
@@ -14,6 +15,13 @@ export default function Home() {
         <Button className="bg-orange-500 hover:bg-orange-600 text-white">
           Explore Our Work
         </Button>
+      </section>
+
+      <section id="stories" className="mb-16">
+        <h2 className="text-3xl font-bold mb-6 text-center">
+          Explore Our Work
+        </h2>
+        <HorizontalStorySlider />
       </section>
 
       <section id="services" className="mb-16">

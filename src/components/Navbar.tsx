@@ -6,10 +6,10 @@ const Navbar = () => {
     <nav className="flex justify-between items-center py-4 px-6">
       <div className="flex items-center">
         <Image
-          src="/placeholder.svg?height=40&width=120"
+          src="/frame_prod.jpg"
           alt="FrameProd Logo"
           width={120}
-          height={40}
+          height={60}
           className="mr-4"
         />
       </div>
