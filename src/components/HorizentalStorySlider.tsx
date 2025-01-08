@@ -6,27 +6,52 @@ import Image from "next/image";
 const stories = [
   {
     id: 1,
-    src: "/frame_prod?height=400&width=225&text=Story+1",
+    src: "/chagui.jpg?height=400&width=225&text=Story+1",
     alt: "Story 1",
   },
   {
     id: 2,
-    src: "/frame_prod?height=400&width=225&text=Story+2",
+    src: "/bav.jpg?height=400&width=225&text=Story+2",
     alt: "Story 2",
   },
   {
     id: 3,
-    src: "/frame_prod?height=400&width=225&text=Story+3",
+    src: "/media1.jpg?height=400&width=225&text=Story+3",
     alt: "Story 3",
   },
   {
     id: 4,
-    src: "/frame_prod?height=400&width=225&text=Story+4",
+    src: "/media1.jpg?height=400&width=225&text=Story+4",
     alt: "Story 4",
   },
   {
     id: 5,
-    src: "/frame_prod?height=400&width=225&text=Story+5",
+    src: "/media2.jpg?height=400&width=225&text=Story+5",
+    alt: "Story 5",
+  },
+  {
+    id: 6,
+    src: "/media3.jpg?height=400&width=225&text=Story+1",
+    alt: "Story 1",
+  },
+  {
+    id: 7,
+    src: "/media4.jpg?height=400&width=225&text=Story+2",
+    alt: "Story 2",
+  },
+  {
+    id: 8,
+    src: "/media5.jpg?height=400&width=225&text=Story+3",
+    alt: "Story 3",
+  },
+  {
+    id: 9,
+    src: "/frame_prod.jpg?height=400&width=225&text=Story+4",
+    alt: "Story 4",
+  },
+  {
+    id: 10,
+    src: "/frame_prod.jpg?height=400&width=225&text=Story+5",
     alt: "Story 5",
   },
 ];
