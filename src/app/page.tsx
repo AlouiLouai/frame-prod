@@ -48,7 +48,7 @@ export default function Home() {
           {[1, 2, 3, 4].map((item) => (
             <div key={item} className="relative h-64">
               <Image
-                src={`/placeholder.svg?height=256&width=384&text=Project+${item}`}
+                src={`/chagui.jpg?height=256&width=384&text=Project+${item}`}
                 alt={`Project ${item}`}
                 layout="fill"
                 objectFit="cover"
