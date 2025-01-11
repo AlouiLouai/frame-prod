@@ -1,5 +1,60 @@
 import Image from "next/image";
-import Link from "next/link";
+import { FloatingDock } from "./ui/floating-dock";
+import {
+  IconBrandGithub,
+  IconBrandX,
+  IconExchange,
+  IconHome,
+  IconNewSection,
+  IconTerminal2,
+} from "@tabler/icons-react";
+
+const links = [
+  {
+    title: "Home",
+    icon: (
+      <IconHome className="h-full w-full text-black dark:text-neutral-300" />
+    ),
+    href: "#",
+  },
+
+  {
+    title: "Products",
+    icon: (
+      <IconTerminal2 className="h-full w-full text-black dark:text-neutral-300" />
+    ),
+    href: "#",
+  },
+  {
+    title: "Components",
+    icon: (
+      <IconNewSection className="h-full w-full text-black dark:text-neutral-300" />
+    ),
+    href: "#",
+  },
+  {
+    title: "Changelog",
+    icon: (
+      <IconExchange className="h-full w-full text-black dark:text-neutral-300" />
+    ),
+    href: "#",
+  },
+
+  {
+    title: "Twitter",
+    icon: (
+      <IconBrandX className="h-full w-full text-black dark:text-neutral-300" />
+    ),
+    href: "#",
+  },
+  {
+    title: "GitHub",
+    icon: (
+      <IconBrandGithub className="h-full w-full text-black dark:text-neutral-300" />
+    ),
+    href: "#",
+  },
+];
 
 const Navbar = () => {
   return (
@@ -14,16 +69,7 @@ const Navbar = () => {
         />
       </div>
       <ul className="flex space-x-6">
-        {["Home", "Services", "Portfolio", "About", "Contact"].map((item) => (
-          <li key={item}>
-            <Link
-              href={`#${item.toLowerCase()}`}
-              className="text-orange-500 hover:text-orange-300 transition-colors"
-            >
-              {item}
-            </Link>
-          </li>
-        ))}
+        <FloatingDock items={links} />
       </ul>
     </nav>
   );
