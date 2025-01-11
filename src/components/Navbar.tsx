@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import { FloatingDock } from "./ui/floating-dock";
 import {
   IconBrandGithub,
@@ -70,16 +69,6 @@ const Navbar = () => {
         />
       </div>
       <ul className="flex space-x-6">
-        {["Home", "Services", "Portfolio", "About", "Contact"].map((item) => (
-          <li key={item}>
-            <Link
-              href={`#${item.toLowerCase()}`}
-              className="text-orange-500 hover:text-orange-300 transition-colors"
-            >
-              {item}
-            </Link>
-          </li>
-        ))}
         <FloatingDock items={links} />
       </ul>
     </nav>
