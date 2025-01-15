@@ -6,7 +6,7 @@ import Image from "next/image";
 const stories = [
   {
     id: 1,
-    src: "/chagui.jpg?height=400&width=225&text=Story+1",
+    src: "/frame_main.jpg?height=400&width=225&text=Story+1",
     alt: "Story 1",
   },
   {
@@ -16,7 +16,7 @@ const stories = [
   },
   {
     id: 3,
-    src: "/media1.jpg?height=400&width=225&text=Story+3",
+    src: "/media3.jpg?height=400&width=225&text=Story+3",
     alt: "Story 3",
   },
   {
@@ -31,7 +31,7 @@ const stories = [
   },
   {
     id: 6,
-    src: "/media3.jpg?height=400&width=225&text=Story+1",
+    src: "/fedi+boy.jpg?height=400&width=225&text=Story+1",
     alt: "Story 1",
   },
   {
@@ -46,12 +46,12 @@ const stories = [
   },
   {
     id: 9,
-    src: "/frame_prod.jpg?height=400&width=225&text=Story+4",
+    src: "/bav+micro.jpg?height=400&width=225&text=Story+4",
     alt: "Story 4",
   },
   {
     id: 10,
-    src: "/frame_prod.jpg?height=400&width=225&text=Story+5",
+    src: "/khou_bav.jpg?height=400&width=225&text=Story+5",
     alt: "Story 5",
   },
 ];
