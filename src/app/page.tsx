@@ -1,6 +1,6 @@
-import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import HorizontalStorySlider from "@/components/HorizentalStorySlider";
+import { FeaturedProject } from "@/components/projects/FeaturedProject";
 
 export default function Home() {
   return (
@@ -40,24 +40,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="portfolio" className="mb-16">
-        <h2 className="text-3xl font-bold mb-6 text-center">
-          Featured Projects
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {[1, 2, 3, 4].map((item) => (
-            <div key={item} className="relative h-64">
-              <Image
-                src={`/chagui.jpg?height=256&width=384&text=Project+${item}`}
-                alt={`Project ${item}`}
-                layout="fill"
-                objectFit="cover"
-                className="rounded-lg"
-              />
-            </div>
-          ))}
-        </div>
-      </section>
+      <FeaturedProject />
 
       <section id="about" className="mb-16">
         <h2 className="text-3xl font-bold mb-6 text-center">About FrameProd</h2>
