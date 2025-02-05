@@ -1,8 +1,13 @@
+"use client";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import HorizontalStorySlider from "@/components/HorizentalStorySlider";
 import { FeaturedProject } from "@/components/projects/FeaturedProject";
+import { ContactModal } from "@/components/modals/ContactModal";
 
 export default function Home() {
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+
   return (
     <div className="container mx-auto px-4 py-8">
       <section id="hero" className="text-center mb-16">
@@ -57,10 +62,17 @@ export default function Home() {
         <p className="mb-4">
           Ready to start your next project? Contact us today!
         </p>
-        <Button className="bg-orange-500 hover:bg-orange-600 text-white">
+        <Button
+          className="bg-orange-500 hover:bg-orange-600 text-white"
+          onClick={() => setIsContactModalOpen(true)}
+        >
           Contact Us
         </Button>
       </section>
+      <ContactModal
+        isOpen={isContactModalOpen}
+        onClose={() => setIsContactModalOpen(false)}
+      />
     </div>
   );
 }
