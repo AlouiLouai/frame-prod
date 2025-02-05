@@ -17,7 +17,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-black text-white min-h-screen pt-4`}>
+      <body
+        className={`${inter.className} bg-black text-white min-h-screen`}
+      >
+        <div className="bg-orange-500 text-black py-2 text-center">
+          <p className="font-semibold">
+            This site is still under improvement. We appreciate your patience!
+          </p>
+        </div>
         <Navbar />
         <main>{children}</main>
       </body>
