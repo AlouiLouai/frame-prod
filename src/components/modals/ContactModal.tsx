@@ -1,35 +1,56 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 
 interface ContactModalProps {
-  isOpen: boolean
-  onClose: () => void
+  isOpen: boolean;
+  onClose: () => void;
 }
 
 export function ContactModal({ isOpen, onClose }: ContactModalProps) {
-  const [email, setEmail] = useState("")
-  const [message, setMessage] = useState("")
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Here you would typically send the email
-    console.log("Sending email:", { name, email, message })
-    // Reset form
-    setEmail("")
-    setMessage("")
-    onClose()
-  }
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    //setIsSending(true);
 
-  if (!isOpen) return null
+    try {
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, message }),
+      });
+
+      if (response.ok) {
+        alert("Email sent successfully!");
+      } else {
+        alert("Failed to send email.");
+      }
+    } catch (error) {
+      console.error(error);
+      alert("An error occurred while sending the email.");
+    } finally {
+      //setIsSending(false);
+      setEmail("");
+      setMessage("");
+      onClose();
+    }
+  };
+
+  if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center p-4">
       <div className="bg-gray-900 p-8 rounded-lg max-w-md w-full">
-        <h2 className="text-3xl font-bold mb-6 text-center text-white">Contact Us</h2>
+        <h2 className="text-3xl font-bold mb-6 text-center text-white">
+          Contact Us
+        </h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <Input
@@ -52,16 +73,21 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
             />
           </div>
           <div className="flex justify-between">
-            <Button type="submit" className="bg-orange-500 hover:bg-orange-600 text-white">
+            <Button
+              type="submit"
+              className="bg-orange-500 hover:bg-orange-600 text-white"
+            >
               Send Message
             </Button>
-            <Button onClick={onClose} className="bg-gray-700 hover:bg-gray-600 text-white">
+            <Button
+              onClick={onClose}
+              className="bg-gray-700 hover:bg-gray-600 text-white"
+            >
               Close
             </Button>
           </div>
         </form>
       </div>
     </div>
-  )
+  );
 }
-
