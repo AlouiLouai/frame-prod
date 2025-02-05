@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import { FloatingDock } from "./ui/floating-dock";
 import {
@@ -7,6 +10,7 @@ import {
   IconHome,
   IconNewSection,
   IconTerminal2,
+  IconMenu2,
 } from "@tabler/icons-react";
 
 const links = [
@@ -17,7 +21,6 @@ const links = [
     ),
     href: "#",
   },
-
   {
     title: "Products",
     icon: (
@@ -39,7 +42,6 @@ const links = [
     ),
     href: "#",
   },
-
   {
     title: "Twitter",
     icon: (
@@ -57,8 +59,10 @@ const links = [
 ];
 
 const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
-    <nav className="flex justify-between items-center py-4 px-6">
+    <nav className="relative flex justify-between items-center py-4 px-6">
       <div className="flex items-center">
         <Image
           src="/frame_prod.jpg"
@@ -68,9 +72,35 @@ const Navbar = () => {
           className="mr-4"
         />
       </div>
-      <ul className="flex space-x-6">
+
+      {/* Mobile menu button */}
+      <button
+        className="md:hidden text-white"
+        onClick={() => setIsMenuOpen(!isMenuOpen)}
+      >
+        <IconMenu2 size={24} />
+      </button>
+
+      {/* Desktop menu */}
+      <div className="hidden md:block">
         <FloatingDock items={links} />
-      </ul>
+      </div>
+
+      {/* Mobile menu */}
+      {isMenuOpen && (
+        <div className="absolute top-full left-0 right-0 bg-black md:hidden">
+          <ul className="flex flex-col items-center py-4">
+            {links.map((link) => (
+              <li key={link.title} className="py-2">
+                <a href={link.href} className="flex items-center text-white">
+                  <span className="w-6 h-6 mr-2">{link.icon}</span>
+                  {link.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </nav>
   );
 };
